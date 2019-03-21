@@ -72,30 +72,11 @@ The code consist of :
    - It provides the `step()` and `act()` methods
    - As the **Multi-Agent Actor Critic** `learn()` function slightly differs from the DDPG one, a `maddpg_learn()` method is provided here.
     - The `learn()` method updates the policy and value parameters using given batch of experience tuples.
-        ```
-        Q_targets = r + γ * critic_target(next_state, actor_target(next_state))
-        where:
-            actor_target(states) -> action
-            critic_target(all_states, all_actions) -> Q-value
-        ```  
     
 - `ddpg_agent.py` : Implement the **DDPG agent** and a **Replay Buffer memory** used by the DDPG agent.
     - The Actor's *Local* and *Target* neural networks, and the Critic's *Local* and *Target* neural networks are instanciated by the Agent's constructor
     - The `learn()` method is specific to DDPG and is not used in this project (I keep it for code later code reuse)
   
-- `memory.py` : Implement the Buffer Replay Memory
-    - As it is accessed by both Agents, it is instanciated in the maddpg class instead of the ddpg class.
-    
-- `utils.py` : Implement some helper functions to encode the states and actions before being inserted in the Replay Buffer, and decode them when a batch of experience is sampled from the Replay Buffer (I wanted the Memory Buffer code to remain unmodified, and thus be usable 'as this' for Single Agent or Multiple Agents)
-
-- `hyperparameters.py` : Defines all the hyperparameters in constant variables. (**Important**: Don't forget to restart the Jupyter Notebook Kernel to take into account any change done to these parameters)
-
-- `TennisProject.ipynb` : This Jupyter notebooks allows to instanciate and train both agent. More in details it allows to :
-  - Prepare the Unity environment and Import the necessary packages 
-  - Check the Unity environment
-  - Define a helper function to instanciate and train a MADDPG agent
-  - Train an agent using MADDPG 
-  - Plot the score results
 
 ### MADDPG parameters and results
 
