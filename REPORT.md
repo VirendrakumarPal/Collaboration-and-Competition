@@ -1,4 +1,4 @@
-# Project 3 : Collaboration and Competition
+# Collaboration and Competition
 
 ## Project's goal
 
@@ -108,63 +108,21 @@ Main "training millestones" :
 
 #### MADDPG parameters
 
-The final version of my MADDPG agents uses the following parameters values (These parameters are passed in the `hyperparameters.py`  file.
+The final version of my MADDPG agents uses the following parameters values 
 
 ```
-SEED = 10                          # Random seed
-
-NB_EPISODES = 10000                # Max nb of episodes
-NB_STEPS = 1000                    # Max nb of steps per episodes 
-UPDATE_EVERY_NB_EPISODE = 4        # Nb of episodes between learning process
-MULTIPLE_LEARN_PER_UPDATE = 3      # Nb of multiple learning process performed in a row
-
-BUFFER_SIZE = int(1e5)             # replay buffer size
-BATCH_SIZE = 200                   # minibatch size
-
-ACTOR_FC1_UNITS = 400              # Number of units for the layer 1 in the actor model
-ACTOR_FC2_UNITS = 300              # Number of units for the layer 2 in the actor model
-CRITIC_FCS1_UNITS = 400            # Number of units for the layer 1 in the critic model
-CRITIC_FC2_UNITS = 300             # Number of units for the layer 2 in the critic model
-NON_LIN = F.relu                   # Non linearity operator used in the model
-LR_ACTOR = 1e-4                    # Learning rate of the actor 
-LR_CRITIC = 5e-3   #2e-3           # Learning rate of the critic
-WEIGHT_DECAY = 0                   # L2 weight decay
-
-GAMMA = 0.995 #0.99                # Discount factor
-TAU = 1e-3                         # For soft update of target parameters
-CLIP_CRITIC_GRADIENT = False       # Clip gradient during Critic optimization
-
-ADD_OU_NOISE = True                # Add Ornstein-Uhlenbeck noise
-MU = 0.                            # Ornstein-Uhlenbeck noise parameter
-THETA = 0.15                       # Ornstein-Uhlenbeck noise parameter
-SIGMA = 0.2                        # Ornstein-Uhlenbeck noise parameter
-NOISE = 1.0                        # Initial Noise Amplitude 
-NOISE_REDUCTION = 1.0              # Noise amplitude decay ratio
-```
-
-The **Actor Neural Networks** use the following architecture :
+                 buffer_size=10000,
+                 batch_size=256,
+                 gamma=0.99,
+                 update_every=2,
+                 noise_start=1.0,
+                 noise_decay=1.0,
+                 t_stop_noise=30000
 
 ```
-Input nodes (8x3=24 states ) 
-  -> Fully Connected Layer (400 units, Relu activation) 
-    -> Batch Normlization
-      -> Fully Connected Layer (300 units, Relu activation) 
-         -> Ouput nodes (2 units/actions, tanh activation)
-```
+    
 
-
-The **Critic Neural Networks** use the following architecture :
-
-```
-Input nodes ( [ 8x3=24 states + 2 actions ] x 2 Agents = 52  ) 
-  -> Fully Connected Layer (400 units, Relu activation) 
-    -> Batch Normlization
-      -> Fully Connected Layer (300 units, Relu activation) 
-        -> Ouput node (1 unit, no activation)
-```
-            
-
-Both Neural Networks use the Adam optimizer with a learning rate of 1e-4 (actors) and 5e-3 (critics) are trained using a batch size of 200.
+Both Neural Networks use the Adam optimizer with a learning rate of 1e-4 (actors) and 1e-3 (critics) are trained using a batch size of 200.
 
 #### Results
 
@@ -177,7 +135,8 @@ Given the chosen architecture and parameters, our results are :
 
 ### Ideas for future work
 
-Change network sizes and choose different hyperparameters
-Trying other algorithms like PPO, A3C or D4PG
-Different replay buffer for actor/critic
-Try adding dropouts in critic network
+-Change network sizes and choose different hyperparameters
+-Trying other algorithms like PPO, A3C or D4PG
+-Different replay buffer for actor/critic
+-Try adding dropouts in critic network
+-Different replay buffer for actor/critic
