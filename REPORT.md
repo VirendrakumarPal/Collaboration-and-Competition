@@ -139,4 +139,4 @@ Given the chosen architecture and parameters, our results are :
 - Trying other algorithms like PPO, A3C or D4PG
 - Different replay buffer for actor/critic
 - Try adding dropouts in critic network
-- Different replay buffer for actor/critic
+- Add prioritized experience replay — This can improve learning by increasing the probability that rare or important experience vectors are sampled
