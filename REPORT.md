@@ -86,24 +86,8 @@ As a starting point, I mainly used the vanilla DDPG architecture and parameters 
 
 Then I tried to explore a few changes, which didn't work that well. Amongs these failed attemps, there were : 
 - using gradient clippint during the critic optimization
-- scaling the noise and using noise decay
 - playing with the size of the neural networks (use smaller or larger ones)
 - playing with the size of the replay buffer (smaller)
-- trying Leaky Relu activation
-- ...
-
-But there were little modifications which helped the agents to converge a bit faster :
-- Altering the Critics neural network so that the actions and states are concatenated directly at the input of the network (instead of concatenating the actions at the first hidden layer of the network, as in vanilla DDPG) 
-- Use a use normal distribution to sample experiences from the Replay Buffer
-- Adding Batch Normalization after the Activation in the first layers of the neural network helped to converge a bit faster (600 episodes less)
-- A important change was to allow the agents to learn not at all episodes, and also be able to perform the learning process multiple times in a row. However too much updates, make the Agent learning very brittle at some point (critical forgetting)
-
-
-Main "training millestones" :
-- "First working version" : At first sight I thought the Agents were not learning, but they started to learn after ~3000 episodes, and were able to solve the environments in "4287 episodes with an Average Score of 0.50" 
-- Change to "Learn 3 times in a row every 4 episodes" + Boost Critic Learning rate to 5e-3 and use a dicount factor of 0.995 : "Environment solved in 2989 episodes with an Average Score of 0.51" 
-- Add Batch normalization : "Environment solved in 2487 episodes with an Average Score of 0.51"
-
 
 
 #### MADDPG parameters
