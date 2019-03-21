@@ -70,10 +70,10 @@ The code consist of :
    - It instanciates DDPG Agents
    - It provides a helper function to save the models checkpoints
    - It provides the `step()` and `act()` methods
-   - As the **Multi-Agent Actor Critic** `learn()` function slightly differs from the DDPG one, a `maddpg_learn()` method is provided here.
-    - The `learn()` method updates the policy and value parameters using given batch of experience tuples.
+   - As the **Multi-Agent Actor Critic** `learn()` function slightly differs from the DDPG one
+   - The `learn()` method updates the policy and value parameters using given batch of experience tuples.
     
-- `ddpg_agent.py` : Implement the **DDPG agent** and a **Replay Buffer memory** used by the DDPG agent.
+- Implement the **DDPG agent** and a **Replay Buffer memory** used by the DDPG agent.
     - The Actor's *Local* and *Target* neural networks, and the Critic's *Local* and *Target* neural networks are instanciated by the Agent's constructor
     - The `learn()` method is specific to DDPG and is not used in this project (I keep it for code later code reuse)
   
@@ -135,8 +135,8 @@ Given the chosen architecture and parameters, our results are :
 
 ### Ideas for future work
 
--Change network sizes and choose different hyperparameters
--Trying other algorithms like PPO, A3C or D4PG
--Different replay buffer for actor/critic
--Try adding dropouts in critic network
--Different replay buffer for actor/critic
+- Change network sizes and choose different hyperparameters
+- Trying other algorithms like PPO, A3C or D4PG
+- Different replay buffer for actor/critic
+- Try adding dropouts in critic network
+- Different replay buffer for actor/critic
