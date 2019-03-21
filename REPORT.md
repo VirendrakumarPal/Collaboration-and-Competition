@@ -13,30 +13,6 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ![Tennis Agents](images/tennis.png)
 
-## Environment details
-
-The environment is based on [Unity ML-agents](https://github.com/Unity-Technologies/ml-agents). The project environment provided by Udacity is similar to the [Tennis](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#tennis) environment on the Unity ML-Agents GitHub page.
-
-> The Unity Machine Learning Agents Toolkit (ML-Agents) is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents. Agents can be trained using reinforcement learning, imitation learning, neuroevolution, or other machine learning methods through a simple-to-use Python API. 
-
-The observation space consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation.  Two continuous actions are available, corresponding to movement toward (or away from) the net, and jumping. 
-
-- Set-up: Two-player game where agents control rackets to bounce ball over a net.
-- Goal: The agents must bounce ball between one another while not dropping or sending ball out of bounds.
-- Agents: The environment contains two agent linked to a single Brain named TennisBrain. After training you can attach another Brain named MyBrain to one of the agent to play against your trained model.
-- Agent Reward Function (independent):
-  - +0.1 To agent when hitting ball over net.
-  - -0.1 To agent who let ball hit their ground, or hit ball out of bounds.
-- Brains: One Brain with the following observation/action space.
-- Vector Observation space: 8 variables corresponding to position and velocity of ball and racket.
-  - In the Udacity provided environment, 3 observations are stacked (8 *3 = 24 variables) 
-- Vector Action space: (Continuous) Size of 2, corresponding to movement toward net or away from net, and jumping.
-- Visual Observations: None.
-- Reset Parameters: One, corresponding to size of ball.
-- Benchmark Mean Reward: 2.5
-- Optional Imitation Learning scene: TennisIL.
-
-
 
 ## Agent Implementation
 
